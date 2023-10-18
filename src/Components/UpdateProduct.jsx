@@ -31,12 +31,12 @@ const UpdateProduct = () => {
           headers:{
               'content-type' : 'application/json',
           },
-          body: JSON.stringify(newProduct)
+          body: JSON.stringify(updatedProduct)
         })
         .then(res => res.json())
         .then(data => {
           console.log(data);
-          if(data.insertedId){
+          if(data.modifiedCount > 0){
               toast.success('Product updated successfully!');
           }
         })
