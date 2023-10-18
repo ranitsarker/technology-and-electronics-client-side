@@ -6,6 +6,7 @@ import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddProductForm from "../Pages/AddProductForm";
 import ProductList from "../Pages/ProductList";
+import AppleBrand from "../Components/AppleBrand";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ const myCustomRoute = createBrowserRouter([
                 path: '/productlist',
                 element: <ProductList></ProductList>,
                 loader: () => fetch('http://localhost:5000/product'),
+             },
+             {
+               path: '/brands/apple',
+               element: <AppleBrand></AppleBrand>,
              },
             {
                 path: '/login',
