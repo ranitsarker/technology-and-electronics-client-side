@@ -12,6 +12,7 @@ import SamsungBrand from "../Components/SamsungBrand";
 import SonyBrand from "../Components/SonyBrand";
 import IntelBrand from "../Components/IntelBrand";
 import MicrosoftBrand from "../Components/MicrosoftBrand";
+import UpdateProduct from "../Components/UpdateProduct";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -56,6 +57,12 @@ const myCustomRoute = createBrowserRouter([
                path: '/brands/microsoft',
                element: <MicrosoftBrand></MicrosoftBrand>,
              },
+             {
+               path: '/updateproduct/:id',
+               element: <UpdateProduct></UpdateProduct>,
+               loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+             },
+             
             {
                 path: '/login',
                 element: <Login></Login>,

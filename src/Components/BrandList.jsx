@@ -1,4 +1,6 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 const BrandList = () => {
   const [brands, setBrands] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,12 +28,16 @@ const BrandList = () => {
         <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {brands.map((brand) => (
             <li key={brand.id} className="text-center">
-              <img
-                src={brand.image}
-                alt={brand.name}
-                className="mx-auto h-16"
-              />
-              <p className="mt-2">{brand.name}</p>
+              <Link to={`/brands/${brand.name.toLowerCase()}`}>
+                <div className="card">
+                  <img
+                    src={brand.image}
+                    alt={brand.name}
+                    className="mx-auto h-16"
+                  />
+                  <p className="mt-2">{brand.name}</p>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
@@ -39,4 +45,5 @@ const BrandList = () => {
     </div>
   );
 };
+
 export default BrandList;

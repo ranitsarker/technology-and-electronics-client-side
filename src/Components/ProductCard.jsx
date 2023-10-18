@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 const ProductCard = ({product}) => {
-    const { image, name, brand, category, type, price, shortDescription, rating } = product;
+    const { _id, image, name, brand, category, type, price, shortDescription, rating } = product;
     return (
         <>
             <div className="card card-side bg-base-100 shadow-xl">
@@ -12,7 +14,9 @@ const ProductCard = ({product}) => {
                     <p>Price: {price}</p>
                     <p>Rating: {rating}</p>
                 <button className="btn btn-primary">Details</button>
+                <Link to={`updateproduct/${_id}`}>
                 <button className="btn btn-primary">Update</button>
+                </Link>
                 </div>
             </div>
             </div>
