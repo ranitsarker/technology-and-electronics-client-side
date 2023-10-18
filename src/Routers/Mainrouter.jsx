@@ -7,6 +7,11 @@ import Register from "../Pages/Register";
 import AddProductForm from "../Pages/AddProductForm";
 import ProductList from "../Pages/ProductList";
 import AppleBrand from "../Components/AppleBrand";
+import GoogleBrand from "../Components/GoogleBrand";
+import SamsungBrand from "../Components/SamsungBrand";
+import SonyBrand from "../Components/SonyBrand";
+import IntelBrand from "../Components/IntelBrand";
+import MicrosoftBrand from "../Components/MicrosoftBrand";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -30,6 +35,26 @@ const myCustomRoute = createBrowserRouter([
              {
                path: '/brands/apple',
                element: <AppleBrand></AppleBrand>,
+             },
+             {
+               path: '/brands/google',
+               element: <GoogleBrand></GoogleBrand>,
+             },
+             {
+               path: '/brands/samsung',
+               element: <SamsungBrand></SamsungBrand>,
+             },
+             {
+               path: '/brands/sony',
+               element: <SonyBrand></SonyBrand>,
+             },
+             {
+               path: '/brands/intel',
+               element: <IntelBrand></IntelBrand>,
+             },
+             {
+               path: '/brands/microsoft',
+               element: <MicrosoftBrand></MicrosoftBrand>,
              },
             {
                 path: '/login',
