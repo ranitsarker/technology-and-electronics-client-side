@@ -1,3 +1,5 @@
+import toast from "react-hot-toast";
+
 const AddProductForm = () => {
     const handleAddProduct = event => {
       event.preventDefault();
@@ -32,6 +34,9 @@ const AddProductForm = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data);
+        if(data.insertedId){
+            toast.success('Product added successfully!');
+        }
       })
     };
   
