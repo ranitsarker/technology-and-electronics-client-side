@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SamsungBrand = () => {
   const [samsungProducts, setSamsungProducts] = useState([]);
@@ -27,6 +28,7 @@ const SamsungBrand = () => {
             <p>Price: {product.price}</p>
             <p>Short Description: {product.shortDescription}</p>
             <p>Rating: {product.rating}</p>
+            <Link to={`/updateproduct/${product._id}`}>Update</Link>
           </div>
         ))}
       </ul>
