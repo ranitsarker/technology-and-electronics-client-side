@@ -5,7 +5,7 @@ const UpdateProduct = () => {
     const product = useLoaderData();
     const { _id, image, name, brand, type, price, rating } = product;
 
-    const handleAddProduct = event => {
+    const handleUpdateProduct = event => {
         event.preventDefault();
         const form = event.target;
         const image = form.image.value;
@@ -13,23 +13,21 @@ const UpdateProduct = () => {
         const brand = form.brand.value;
         const type = form.type.value;
         const price = form.price.value;
-        const shortDescription = form.shortDescription.value;
         const rating = form.rating.value;
     
-        const newProduct = {
+        const updatedProduct = {
           image,
           name,
           brand,
           type,
           price,
-          shortDescription,
           rating
         };
     
-        console.log(newProduct);
+        console.log(updatedProduct);
         // send form data to server 
-        fetch('http://localhost:5000/product' , {
-          method: 'POST',
+        fetch(`http://localhost:5000/product/${_id}`, {
+          method: 'PUT',
           headers:{
               'content-type' : 'application/json',
           },
@@ -39,7 +37,7 @@ const UpdateProduct = () => {
         .then(data => {
           console.log(data);
           if(data.insertedId){
-              toast.success('Product added successfully!');
+              toast.success('Product updated successfully!');
           }
         })
       };
@@ -49,7 +47,7 @@ const UpdateProduct = () => {
         <h2>update product:{name}</h2>
            <div className="flex justify-center items-center h-screen">
            
-                <form onSubmit={handleAddProduct} className="w-full max-w-md bg-white p-4 rounded shadow-md">
+                <form onSubmit={handleUpdateProduct} className="w-full max-w-md bg-white p-4 rounded shadow-md">
                     <div className="mb-4">
                     <label htmlFor="image" className="block text-gray-700 text-sm font-bold mb-2">
                         Image
