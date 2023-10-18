@@ -1,10 +1,14 @@
+import BrandList from "../Components/BrandList";
+
 
 const Home = () => {
-    return (
-        <>
-            This is home page.
-        </>
-    );
+  return (
+    <>
+    <div className="container mx-auto py-8">
+      <BrandList></BrandList>
+    </div>
+    </>
+  );
 };
 
 export default Home;
