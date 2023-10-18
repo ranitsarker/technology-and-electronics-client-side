@@ -7,6 +7,7 @@ const AddProductForm = () => {
       const image = form.image.value;
       const name = form.name.value;
       const brand = form.brand.value;
+      const category = form.category.value;
       const type = form.type.value;
       const price = form.price.value;
       const shortDescription = form.shortDescription.value;
@@ -16,6 +17,7 @@ const AddProductForm = () => {
         image,
         name,
         brand,
+        category,
         type,
         price,
         shortDescription,
@@ -69,18 +71,22 @@ const AddProductForm = () => {
             placeholder="Product Name"
           />
         </div>
-
         <div className="mb-4">
           <label htmlFor="brand" className="block text-gray-700 text-sm font-bold mb-2">
             Brand Name
           </label>
-          <input
-            type="text"
+          <select
             id="brand"
             name="brand"
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            placeholder="Brand Name"
-          />
+            className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+          >
+            <option value="Apple">Apple</option>
+            <option value="Samsung">Samsung</option>
+            <option value="Sony">Sony</option>
+            <option value="Google">Google</option>
+            <option value="Intel">Intel</option>
+            <option value="Microsoft">Microsoft</option>
+          </select>
         </div>
 
         <div className="mb-4">
@@ -95,6 +101,9 @@ const AddProductForm = () => {
             <option value="phone">Phone</option>
             <option value="computer">Computer</option>
             <option value="headphone">Headphone</option>
+            <option value="processor">Processor</option>
+            <option value="headphone">Smartwatch</option>
+
           </select>
         </div>
 

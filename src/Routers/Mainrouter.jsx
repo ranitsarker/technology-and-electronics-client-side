@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddProductForm from "../Pages/AddProductForm";
+import ProductList from "../Pages/ProductList";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -19,6 +20,11 @@ const myCustomRoute = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <AddProductForm></AddProductForm>,
+             },
+             {
+                path: '/productlist',
+                element: <ProductList></ProductList>,
+                loader: () => fetch('http://localhost:5000/product'),
              },
             {
                 path: '/login',
