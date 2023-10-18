@@ -4,6 +4,7 @@ import Errorpage from "../Pages/Errorpage";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
+import AddProductForm from "../Pages/AddProductForm";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -15,6 +16,10 @@ const myCustomRoute = createBrowserRouter([
                path: '/',
                element: <Home></Home>,
             },
+            {
+                path: '/addproduct',
+                element: <AddProductForm></AddProductForm>,
+             },
             {
                 path: '/login',
                 element: <Login></Login>,
