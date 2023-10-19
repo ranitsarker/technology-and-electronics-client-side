@@ -31,7 +31,9 @@ const Register = () => {
                 toast.error('Failed to register. Please check your information and try again.');
             });
     };
-
+    const handleLoginToggle = () => {
+        navigate('/login');
+    };
 
     return (
         <>
@@ -81,6 +83,16 @@ const Register = () => {
                             Register
                         </button>
                     </form>
+                    <p className="mt-4 text-center">
+                        Already have an account?{' '}
+                        <button
+                            className="text-[#1DBC60] hover:underline"
+                            type="button"
+                            onClick={handleLoginToggle}
+                        >
+                            Login
+                        </button>
+                    </p>
 
                 </div>
             </div>
