@@ -12,9 +12,11 @@ const Register = () => {
     const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const photo = form.get('photo');
         const email = form.get('email');
         const password = form.get('password');
-        
+
   const passwordValidationError = Validation(password);
 
   if (passwordValidationError) {
@@ -29,6 +31,23 @@ const Register = () => {
                         toast.success('User created successfully.');
                         navigate('/');
                     })
+                    // new user has created
+                    const user = { email }
+                    fetch('http://localhost:5000/user' , {
+                        method: 'POST',
+                        headers:{
+                            'content-type' : 'application/json',
+                        },
+                        body: JSON.stringify(user)
+                      })
+                      .then(res => res.json())
+                      .then(data => {
+                        console.log(data);
+                        if(data.insertedId){
+                            toast.success('User also added successfully in database!');
+                        }
+                      })
+
             })
             .catch(error => {
                 console.log(error);
