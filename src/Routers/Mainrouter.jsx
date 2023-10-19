@@ -15,6 +15,7 @@ import MicrosoftBrand from "../Components/MicrosoftBrand";
 import UpdateProduct from "../Components/UpdateProduct";
 import ProductDetails from "../Components/ProductDetails";
 import PrivateRouter from "./PrivateRouter";
+import MyCart from "../Pages/MyCart";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -76,6 +77,10 @@ const myCustomRoute = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>,
              },
+             {
+              path: '/mycart',
+              element: <MyCart></MyCart>,
+            },
         ]
     }
 ]);

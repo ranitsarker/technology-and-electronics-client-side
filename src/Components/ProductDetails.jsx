@@ -14,6 +14,19 @@ const ProductDetails = () => {
       });
   }, [id]);
 
+  const addToCart = () => {
+    if (product) {
+      // Fetch the existing cart from localStorage or initialize an empty array
+      const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Add the product to the cart
+      existingCart.push(product);
+
+      // Update localStorage with the updated cart
+      localStorage.setItem('cart', JSON.stringify(existingCart));
+    }
+  };
+
   if (!product) {
     return <div>Loading...</div>;
   }
@@ -28,7 +41,9 @@ const ProductDetails = () => {
       <p>Price: {product.price}</p>
       <p>Short Description: {product.shortDescription}</p>
       <p>Rating: {product.rating}</p>
-      <button className="btn btn-primary">add to cart</button>
+      <button className="btn btn-primary" onClick={addToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 };

@@ -38,6 +38,9 @@ const Navbar = () => {
                         <li>
                             <Link to="/register">Register</Link>
                         </li>
+                        <li>
+                            <Link to="/mycart">My Cart</Link>
+                        </li>
 
                     </ul>
                     </div>
@@ -59,6 +62,9 @@ const Navbar = () => {
                         </li>
                         <li>
                             <Link to="/register">Register</Link>
+                        </li>
+                        <li>
+                            <Link to="/mycart">My Cart</Link>
                         </li>
                     </ul>
                 </div>
