@@ -3,9 +3,14 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import myCustomRoute from './Routers/Mainrouter'
+import AuthProvider from './AuthProvider/AuthProvider'
+import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={myCustomRoute}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={myCustomRoute}></RouterProvider>
+      <Toaster /> 
+    </AuthProvider>
   </React.StrictMode>,
 )
