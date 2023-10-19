@@ -82,7 +82,7 @@ const Login = () => {
           </form>
           <button
             onClick={handleGoogleLogin}
-            className="btn my-3 btn-outline w-full hover:bg-[#1DBC60] hover:border-white"
+            className="btn my-3 btn-outline w-full hover:border-white"
           >
             <FaGoogle /> Login with Google
           </button>
