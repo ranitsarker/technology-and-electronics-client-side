@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext);
+
+    // Logout: 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                toast.success('Successfully logged out.'); 
+            })
+            .catch()
+    }
     return (
         <>
             <div className="navbar bg-base-100">
@@ -49,6 +62,42 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
+                {
+                            user ? (
+                                <div className="navbar-end inline-block">
+                                <span className="mr-2 text-xs">
+                                    {user.photoURL && (
+                                    <img
+                                        className="inline-block mx-2 w-8 h-8 my-2 rounded-full"
+                                        src={user.photoURL}
+                                        alt={`${user.displayName}'s photo`}
+                                    />
+                                    )}
+                                    {user.displayName ? (
+                                    <>
+                                        {user.displayName}
+                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]" onClick={handleLogOut}>
+                                        Logout
+                                        </button>
+                                    </>
+                                    ) : (
+                                    <>
+                                        {user.email || 'Unknown'}
+                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]" onClick={handleLogOut}>
+                                        Logout
+                                        </button>
+                                    </>
+                                    )}
+                                </span>
+                                </div>
+                            ) : (
+                                <div className="navbar-end">
+                                <Link to="/login" className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]">
+                                    Login
+                                </Link>
+                                </div>
+                            )
+                        }
             </div>
         </>
     );
