@@ -14,6 +14,7 @@ import IntelBrand from "../Components/IntelBrand";
 import MicrosoftBrand from "../Components/MicrosoftBrand";
 import UpdateProduct from "../Components/UpdateProduct";
 import ProductDetails from "../Components/ProductDetails";
+import PrivateRouter from "./PrivateRouter";
 
 const myCustomRoute = createBrowserRouter([
     {
@@ -27,7 +28,7 @@ const myCustomRoute = createBrowserRouter([
             },
             {
                 path: '/addproduct',
-                element: <AddProductForm></AddProductForm>,
+                element: <PrivateRouter><AddProductForm></AddProductForm></PrivateRouter>,
              },
              {
                 path: '/productlist',
@@ -65,7 +66,7 @@ const myCustomRoute = createBrowserRouter([
              },
              {
               path: '/product/:id',
-              element: <ProductDetails></ProductDetails>,
+              element: <PrivateRouter><ProductDetails></ProductDetails></PrivateRouter>,
             },
             {
                 path: '/login',

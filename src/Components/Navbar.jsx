@@ -76,14 +76,14 @@ const Navbar = () => {
                                     {user.displayName ? (
                                     <>
                                         {user.displayName}
-                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]" onClick={handleLogOut}>
+                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white" onClick={handleLogOut}>
                                         Logout
                                         </button>
                                     </>
                                     ) : (
                                     <>
                                         {user.email || 'Unknown'}
-                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]" onClick={handleLogOut}>
+                                        <button className="font-bold mx-4 btn btn-outline rounded-lg text-white" onClick={handleLogOut}>
                                         Logout
                                         </button>
                                     </>
@@ -92,7 +92,7 @@ const Navbar = () => {
                                 </div>
                             ) : (
                                 <div className="navbar-end">
-                                <Link to="/login" className="font-bold mx-4 btn btn-outline rounded-lg text-white bg-[#1DBC60]">
+                                <Link to="/login" className="font-bold mx-4 btn btn-outline rounded-lg">
                                     Login
                                 </Link>
                                 </div>
