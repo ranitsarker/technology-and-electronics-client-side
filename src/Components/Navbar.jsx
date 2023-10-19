@@ -62,7 +62,7 @@ const Navbar = () => {
                         </li>
                     </ul>
                 </div>
-                {
+                        {
                             user ? (
                                 <div className="navbar-end inline-block">
                                 <span className="mr-2 text-xs">

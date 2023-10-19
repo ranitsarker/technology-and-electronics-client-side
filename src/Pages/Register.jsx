@@ -5,15 +5,16 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, handleUpdateProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [userPassword, setUserPassword] = useState("");
+    const [photo, setPhoto] = useState(""); 
     const handleRegister = (e) => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-
+        
   const passwordValidationError = Validation(password);
 
   if (passwordValidationError) {
@@ -23,8 +24,11 @@ const Register = () => {
         // Create user:
         createUser(email, password)
             .then(() => {
-                toast.success('User created successfully.');
-                navigate('/');
+                handleUpdateProfile(name, photo)
+                    .then(() => {
+                        toast.success('User created successfully.');
+                        navigate('/');
+                    })
             })
             .catch(error => {
                 console.log(error);
@@ -56,6 +60,8 @@ const Register = () => {
                                 type="text"
                                 name="photo"
                                 placeholder="Enter your photo URL"
+                                value={photo}
+                                onChange={(e) => setPhoto(e.target.value)}
                             />
                         </div>
                         <div className="mb-4">
