@@ -32,18 +32,23 @@ const ProductDetails = () => {
   }
 
   return (
-    <div>
-      <h1>Product Details</h1>
-      <img src={product.image} alt="" />
-      <p>Name: {product.name}</p>
-      <p>Brand: {product.brand}</p>
-      <p>Type: {product.type}</p>
-      <p>Price: {product.price}</p>
-      <p>Short Description: {product.shortDescription}</p>
-      <p>Rating: {product.rating}</p>
-      <button className="btn btn-primary" onClick={addToCart}>
-        Add to Cart
-      </button>
+    <div className="container mx-auto">
+      <div className="flex items-center">
+        <div className="w-full md:w-2/3 lg:w-1/2 p-4">
+          <img src={product.image} alt="" className="w-full mx-auto" />
+        </div>
+        <div className="w-full md:w-1/3 lg:w-1/2 p-4">
+          <h1 className="text-2xl font-bold">{product.name}</h1>
+          <p>Brand: {product.brand}</p>
+          <p>Type: {product.type}</p>
+          <p>Price: {product.price}</p>
+          <p>Short Description: {product.shortDescription}</p>
+          <p>Rating: {product.rating}</p>
+          <button className="btn btn-outline mt-4" onClick={addToCart}>
+            Add to Cart
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
