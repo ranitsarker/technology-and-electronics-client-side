@@ -20,7 +20,7 @@ const BrandList = () => {
 
   return (
     <div className="container mx-auto py-8">
-      <h1 className="text-2xl font-semibold mb-4">Brand Names</h1>
+      <h1 className="text-2xl font-semibold mb-8 text-center">Brand Names</h1>
 
       {loading ? (
         <div className="text-center">Loading...</div>
