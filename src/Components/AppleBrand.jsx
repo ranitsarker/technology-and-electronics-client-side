@@ -24,6 +24,9 @@ const AppleBrand = () => {
       <AppleBrandBanner></AppleBrandBanner>
       <div className="text-center container mx-auto">
         <h1 className="text-2xl font-bold my-8">Apple Products</h1>
+        {appleProducts.length === 0 ? (
+          <div className="font-bold my-8">No data found.</div>
+        ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {displayedProducts.map((product) => (
             <div key={product._id} className="border p-4">
@@ -45,6 +48,7 @@ const AppleBrand = () => {
             </div>
           ))}
         </div>
+        )}
         {appleProducts.length > 4 && !showAllProducts && (
           <button
             onClick={() => setShowAllProducts(true)}
