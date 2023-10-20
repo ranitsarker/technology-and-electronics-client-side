@@ -1,28 +1,37 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 function MyCart() {
   const [cartData, setCartData] = useState([]);
-  const userEmail = 'user12@gmail.com'; // Replace with the user's actual email
+  const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/cart/${userEmail}`)
-      .then((response) => response.json())
-      .then((data) => setCartData(data))
-      .catch((error) => {
-        console.error('Error fetching cart data: ', error);
-      });
-  }, [userEmail]);
+    if (user) {
+      const userEmail = user.email;
+
+      fetch(`http://localhost:5000/cart/${userEmail}`)
+        .then((response) => response.json())
+        .then((data) => setCartData(data))
+        .catch((error) => {
+          console.error('Error fetching cart data: ', error);
+        });
+    }
+  }, [user]);
 
   return (
     <div>
       <h1>My Cart</h1>
-      {cartData.map((item, index) => (
-        <div key={index}>
-          <img src={item.product.image} alt="Product" />
-          <p>Name: {item.product.name}</p>
-          <p>Price: ${item.product.price}</p>
-        </div>
-      ))}
+      {cartData.length > 0 ? (
+        cartData.map((item, index) => (
+          <div key={index}>
+            <img src={item.product.image} alt="Product" />
+            <p>Name: {item.product.name}</p>
+            <p>Price: ${item.product.price}</p>
+          </div>
+        ))
+      ) : (
+        <p>Your cart is empty.</p>
+      )}
     </div>
   );
 }
