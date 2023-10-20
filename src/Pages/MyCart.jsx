@@ -5,11 +5,20 @@ function MyCart() {
   const [cartData, setCartData] = useState([]);
   const { user } = useContext(AuthContext);
 
+  const removeFromCart = (product) => {
+    if (user) {
+      // Filter out the item to be removed from the cart data
+      const updatedCartData = cartData.filter((item) => item.product._id !== product._id);
+      setCartData(updatedCartData);
+  
+    }
+  };
+
   useEffect(() => {
     if (user) {
       const userEmail = user.email;
 
-      fetch(`https://technology-and-electronics-server-side-aiedsdumd.vercel.app/cart/${userEmail}`)
+      fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/cart/${userEmail}`)
         .then((response) => response.json())
         .then((data) => setCartData(data))
         .catch((error) => {
@@ -33,6 +42,7 @@ function MyCart() {
           <div>
             <p className="text-lg font-semibold">{item.product.name}</p>
             <p className="text-gray-600">Price: ${item.product.price}</p>
+            <button onClick={() => removeFromCart(item.product)}>Remove from Cart</button>
           </div>
         </div>
       ))}

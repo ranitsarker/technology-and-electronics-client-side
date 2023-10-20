@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const { user } = useContext(AuthContext); // Get the user object from your authentication context
 
   useEffect(() => {
-    fetch(`https://technology-and-electronics-server-side-aiedsdumd.vercel.app/product/${id}`)
+    fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/product/${id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => {
@@ -26,7 +26,7 @@ const ProductDetails = () => {
       };
 
       // Make a POST request to add the product to the cart
-      fetch('https://technology-and-electronics-server-side-aiedsdumd.vercel.app/add-to-cart', {
+      fetch('https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/add-to-cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -49,12 +49,15 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="container mx-auto">
-      <div className="flex items-center">
-        <div className="w-full md:w-2/3 lg:w-1/2 p-4">
+    <>
+<div className="container mx-auto">
+  <div className="flex items-center">
+    <div className="w-full p-4">
+      <div className="flex flex-col md:flex-row"> {/* Flex container for image and text */}
+        <div className="w-full md:w-1/2 p-4">
           <img src={product.image} alt="" className="w-full mx-auto" />
         </div>
-        <div className="w-full md:w-1/3 lg:w-1/2 p-4">
+        <div className="w-full md:w-1/2 p-4 md:mt-8">
           <h1 className="text-2xl font-bold">{product.name}</h1>
           <p>Brand: {product.brand}</p>
           <p>Type: {product.type}</p>
@@ -67,6 +70,12 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+    </>
+
+
   );
 };
 
