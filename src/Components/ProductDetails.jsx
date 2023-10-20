@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast'; // Import toast
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -24,6 +25,9 @@ const ProductDetails = () => {
 
       // Update localStorage with the updated cart
       localStorage.setItem('cart', JSON.stringify(existingCart));
+
+      // Show a success toast
+      toast.success('Product added successfully in cart');
     }
   };
 

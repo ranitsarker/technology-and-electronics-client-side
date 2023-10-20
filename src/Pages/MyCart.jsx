@@ -12,18 +12,28 @@ const MyCart = () => {
     // Force a re-render to update the cart display
     window.location.reload();
   };
-  return (
-    <div>
-      <h1>My Cart</h1>
-      {cartItems.map((item, index) => (
-        <div key={index}>
-          {/* Display cart item details here */}
-          <p>Name: {item.name}</p>
-          <p>Price: {item.price}</p>
-          <button onClick={() => removeFromCart(index)}>Remove</button>
 
-        </div>
-      ))}
+  return (
+    <div className="container mx-auto flex items-center h-screen">
+      <div className="w-full text-center">
+        <h1 className="text-2xl font-bold mb-4">
+          My Cart
+        </h1>
+        {cartItems.length === 0 ? (
+          <p className="font-bold">
+            No data found
+          </p>
+        ) : (
+          cartItems.map((item, index) => (
+            <div key={index}>
+              {/* Display cart item details here */}
+              <p>Name: {item.name}</p>
+              <p>Price: {item.price}</p>
+              <button onClick={() => removeFromCart(index)}>Remove</button>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   );
 };
