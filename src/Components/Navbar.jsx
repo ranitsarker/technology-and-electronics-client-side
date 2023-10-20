@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
@@ -8,6 +8,7 @@ import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const { isDarkMode, toggleDarkMode} = useDarkMode();
+    const [cartItemCount, setCartItemCount] = useState(0);
     const handleToggleClick = () => {
         toggleDarkMode();
     };
@@ -27,7 +28,23 @@ const Navbar = () => {
                 toast.error('Logout failed');
             });
     };
-
+  // Fetch and count cart items when the user changes
+  useEffect(() => {
+    if (user) {
+      const userEmail = user.email;
+      // Fetch the user's cart data and count the items
+      fetch(`http://localhost:5000/cart/${userEmail}`)
+        .then((response) => response.json())
+        .then((data) => {
+          setCartItemCount(data.length); // Set the cart item count
+        })
+        .catch((error) => {
+          console.error('Error fetching cart data: ', error);
+        });
+    } else {
+      setCartItemCount(0); // Set cart item count to 0 if no user is logged in
+    }
+  }, [user]);
     return (
         <>
             <div className="navbar bg-[#1b2141]" style={navbarStyle}>
@@ -50,7 +67,7 @@ const Navbar = () => {
                                     <NavLink to="/addproduct">Add Product</NavLink>
                                 </li>
                                 <li className="text-white">
-                                    <NavLink to="/mycart">My Cart</NavLink>
+                                    <NavLink to="/mycart">My Cart {cartItemCount > 0 && `(${cartItemCount})`}</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -67,7 +84,7 @@ const Navbar = () => {
                                 <NavLink to="/addproduct">Add Product</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/mycart">My Cart</NavLink>
+                                <NavLink to="/mycart">My Cart {cartItemCount > 0 && `(${cartItemCount})`}</NavLink>
                             </li>
                         </ul>
                     </div>
