@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
+  const { user } = useContext(AuthContext); // Get the user object from your authentication context
 
   useEffect(() => {
     fetch(`https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/${id}`)
@@ -16,17 +18,29 @@ const ProductDetails = () => {
   }, [id]);
 
   const addToCart = () => {
-    if (product) {
-      // Fetch the existing cart from localStorage or initialize an empty array
-      const existingCart = JSON.parse(localStorage.getItem('cart')) || [];
+    if (product && user) {
+      const userEmail = user.email; // Get the user's email
+      const productToAdd = {
+        email: userEmail,
+        product: product,
+      };
 
-      // Add the product to the cart
-      existingCart.push(product);
-
-      // Update localStorage with the updated cart
-      localStorage.setItem('cart', JSON.stringify(existingCart));
-
-      toast.success('Product added to the cart');
+      // Make a POST request to add the product to the cart
+      fetch('http://localhost:5000/add-to-cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(productToAdd),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          toast.success(data.message);
+        })
+        .catch((error) => {
+          console.error('Error adding product to cart: ', error);
+          toast.error('Failed to add product to the cart');
+        });
     }
   };
 
