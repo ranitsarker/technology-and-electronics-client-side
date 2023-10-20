@@ -9,7 +9,7 @@ const ProductDetails = () => {
   const { user } = useContext(AuthContext); // Get the user object from your authentication context
 
   useEffect(() => {
-    fetch(`https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/${id}`)
+    fetch(`https://technology-and-electronics-server-side-aiedsdumd.vercel.app/product/${id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => {
@@ -26,7 +26,7 @@ const ProductDetails = () => {
       };
 
       // Make a POST request to add the product to the cart
-      fetch('http://localhost:5000/add-to-cart', {
+      fetch('https://technology-and-electronics-server-side-aiedsdumd.vercel.app/add-to-cart', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

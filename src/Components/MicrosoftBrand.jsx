@@ -8,7 +8,7 @@ const MicrosoftBrand = () => {
 
   useEffect(() => {
     // Fetch Microsoft products data from your API
-    fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/microsoft')
+    fetch('https://technology-and-electronics-server-side-aiedsdumd.vercel.app/product/microsoft')
       .then((response) => response.json())
       .then((data) => {
         setMicrosoftProducts(data);

@@ -9,7 +9,7 @@ function MyCart() {
     if (user) {
       const userEmail = user.email;
 
-      fetch(`http://localhost:5000/cart/${userEmail}`)
+      fetch(`https://technology-and-electronics-server-side-aiedsdumd.vercel.app/cart/${userEmail}`)
         .then((response) => response.json())
         .then((data) => setCartData(data))
         .catch((error) => {

@@ -24,7 +24,7 @@ const AddProductForm = () => {
   
       console.log(newProduct);
       // send form data to server 
-      fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product' , {
+      fetch('https://technology-and-electronics-server-side-aiedsdumd.vercel.app/product' , {
         method: 'POST',
         headers:{
             'content-type' : 'application/json',

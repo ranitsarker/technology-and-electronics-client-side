@@ -7,7 +7,7 @@ const GoogleBrand = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/google') 
+    fetch('https://technology-and-electronics-server-side-aiedsdumd.vercel.app/product/google') 
       .then((response) => response.json())
       .then((data) => {
         setGoogleProducts(data);
