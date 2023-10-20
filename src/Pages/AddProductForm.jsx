@@ -33,9 +33,10 @@ const AddProductForm = () => {
       })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         if(data.insertedId){
             toast.success('Product added successfully!');
+            form.reset();
         }
       })
     };
@@ -146,7 +147,7 @@ const AddProductForm = () => {
         <div className="flex items-center justify-center">
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="btn btn-outline font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           >
             Add Product
           </button>

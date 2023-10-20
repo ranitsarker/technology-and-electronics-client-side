@@ -5,7 +5,6 @@ import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import AddProductForm from "../Pages/AddProductForm";
-import ProductList from "../Pages/ProductList";
 import AppleBrand from "../Components/AppleBrand";
 import GoogleBrand from "../Components/GoogleBrand";
 import SamsungBrand from "../Components/SamsungBrand";
@@ -30,11 +29,6 @@ const myCustomRoute = createBrowserRouter([
             {
                 path: '/addproduct',
                 element: <PrivateRouter><AddProductForm></AddProductForm></PrivateRouter>,
-             },
-             {
-                path: '/productlist',
-                element: <ProductList></ProductList>,
-                loader: () => fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product'),
              },
              {
                path: '/brands/apple',

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import { useDarkMode } from "../DarkModeContext/DarkModeContext";
@@ -13,7 +13,7 @@ const Navbar = () => {
     };
 
     const navbarStyle = {
-        background: isDarkMode ? '#333' : '#1259A6',
+        background: isDarkMode ? 'black' : '#1a1f40',
         color: isDarkMode ? 'white' : 'black',
     };
 
@@ -39,18 +39,21 @@ const Navbar = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" />
                                 </svg>
                             </label>
-                            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                            <ul tabIndex={0} 
+                            className="text-white menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                            style={navbarStyle}
+                            >
                                 <li>
-                                    <Link to="/">Home</Link>
+                                    <NavLink to="/">Home</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/addproduct">Add Product</Link>
+                                    <NavLink to="/addproduct">Add Product</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/mycart">My Cart</Link>
+                                    <NavLink to="/mycart">My Cart</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/login">Login</Link>
+                                    <NavLink to="/login">Login</NavLink>
                                 </li>
                             </ul>
                         </div>
@@ -61,16 +64,16 @@ const Navbar = () => {
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1 font-bold text-white text-lg">
                             <li>
-                                <Link to="/">Home</Link>
+                                <NavLink to="/">Home</NavLink>
                             </li>
                             <li>
-                                <Link to="/addproduct">Add Product</Link>
+                                <NavLink to="/addproduct">Add Product</NavLink>
                             </li>
                             <li>
-                                <Link to="/mycart">My Cart</Link>
+                                <NavLink to="/mycart">My Cart</NavLink>
                             </li>
                             <li>
-                                <Link to="/login">Login</Link>
+                                <NavLink to="/login">Login</NavLink>
                             </li>
                         </ul>
                     </div>

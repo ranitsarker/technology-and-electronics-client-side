@@ -13,9 +13,6 @@ const Footer = () => {
             <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded" style={footerStyle}>
                 <nav className="grid md:grid-flow-col gap-4 list-none">
                     <li>
-                        <Link to="/productlist">All Products</Link>
-                    </li>
-                    <li>
                         <Link to="/brands/apple">Apple</Link>
                     </li>
                     <li>

@@ -21,7 +21,7 @@ const GoogleBrand = () => {
 
   return (
     <>
-      <GoogleBrandBanner /> {/* You may need to create a GoogleBrandBanner component. */}
+      <GoogleBrandBanner /> 
       <div className="text-center container mx-auto">
         <h1 className="text-2xl font-bold my-8">Google Products</h1>
         {googleProducts.length === 0 ? (
