@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ const ProductDetails = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col md:flex-row lg:flex-col items-center">
+      <div className="flex items-center">
         <div className="w-full md:w-2/3 lg:w-1/2 p-4">
           <img src={product.image} alt="" className="w-full mx-auto" />
         </div>

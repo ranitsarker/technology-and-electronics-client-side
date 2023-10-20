@@ -44,7 +44,7 @@ const BrandList = () => {
                       <img
                         src={brand.image}
                         alt={brand.name}
-                        className="mx-auto h-16"
+                        className="mx-auto h-16 rounded"
                       />
                       <p className="mt-2 font-bold">{brand.name}</p>
                     </div>
