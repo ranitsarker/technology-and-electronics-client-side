@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const ProductCard = ({product}) => {
-    const { _id, image, name, brand, category, type, price, shortDescription, rating } = product;
+    const { image, name, brand, type, price, rating } = product;
     return (
         <>
             <div className="card card-side bg-base-100 shadow-xl">
@@ -22,5 +23,18 @@ const ProductCard = ({product}) => {
         </>
     );
 };
-
+ProductCard.propTypes = {
+    product: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      brand: PropTypes.string.isRequired,
+      category: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      shortDescription: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      // Add more prop validations as needed
+    }).isRequired,
+  };
 export default ProductCard;

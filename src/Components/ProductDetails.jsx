@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(`https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/${id}`)
       .then((response) => response.json())
       .then((data) => setProduct(data))
       .catch((error) => {
@@ -36,7 +36,7 @@ const ProductDetails = () => {
 
   return (
     <div className="container mx-auto">
-      <div className="flex items-center">
+      <div className="flex flex-col md:flex-row lg:flex-col items-center">
         <div className="w-full md:w-2/3 lg:w-1/2 p-4">
           <img src={product.image} alt="" className="w-full mx-auto" />
         </div>

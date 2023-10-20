@@ -33,7 +33,7 @@ const Register = () => {
                     })
                     // new user has created
                     const user = { email }
-                    fetch('http://localhost:5000/user' , {
+                    fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/user' , {
                         method: 'POST',
                         headers:{
                             'content-type' : 'application/json',

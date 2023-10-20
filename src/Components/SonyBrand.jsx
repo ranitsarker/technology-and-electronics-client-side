@@ -7,7 +7,7 @@ const SonyBrand = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/product/sony')
+    fetch('https://technology-and-electronics-server-side-lugjmequ0.vercel.app/product/sony')
       .then((response) => response.json())
       .then((data) => {
         setSonyProducts(data);
