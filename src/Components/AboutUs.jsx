@@ -1,13 +1,22 @@
+import { useDarkMode } from "../DarkModeContext/DarkModeContext";
+
 const AboutUs = () => {
+  const { isDarkMode } = useDarkMode();
+
+  // Use isDarkMode to conditionally style your about us content
+  const aboutUsStyle = {
+    background: isDarkMode ? 'black' : 'white',
+    color: isDarkMode ? 'white' : 'black',
+  };
   return (
-    <div className="bg-gray-100">
+    <div style={aboutUsStyle}>
       <div className="container mx-auto p-4">
-        <div className="bg-white p-8 rounded-lg shadow-md">
+        <div className="bg-white p-8 rounded-lg shadow-md" style={aboutUsStyle}>
           <div className="text-center">
-            <h2 className="text-2xl font-semibold text-gray-800">About Us</h2>
+            <h2 className="text-2xl font-semibold">About Us</h2>
           </div>
 
-          <div className="mt-8 text-gray-700">
+          <div className="mt-8">
             <h3 className="text-lg font-semibold mb-4">Our Vision</h3>
             <p className="mb-6">At ElectraTech, our vision is to be at the forefront of technology and electronics. We aim to empower individuals with the latest and greatest products and information to enhance their digital lives.</p>
 

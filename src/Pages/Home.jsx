@@ -4,6 +4,7 @@ import BrandList from "../Components/BrandList";
 import Testimonials from "../Components/Testimonials";
 
 const Home = () => {
+
   return (
     <>  
         <Banner></Banner>

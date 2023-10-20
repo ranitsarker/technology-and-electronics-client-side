@@ -1,10 +1,16 @@
 import { Link } from "react-router-dom";
-
-
+import { useDarkMode } from "../DarkModeContext/DarkModeContext";
 const Footer = () => {
+    const { isDarkMode } = useDarkMode();
+
+    // Use isDarkMode to conditionally style your about us content
+    const footerStyle = {
+      background: isDarkMode ? 'black' : 'white',
+      color: isDarkMode ? 'white' : 'black',
+    };
     return (
         <>
-            <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+            <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded" style={footerStyle}>
                 <nav className="grid md:grid-flow-col gap-4 list-none">
                     <li>
                         <Link to="/productlist">All Products</Link>

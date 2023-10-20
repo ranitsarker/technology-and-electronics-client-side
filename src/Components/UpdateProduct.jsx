@@ -44,7 +44,7 @@ const UpdateProduct = () => {
 
     return (
         <>
-        <h2>update product:{name}</h2>
+        <h2 className="font-bold text-center mt-8">Update product:{name}</h2>
            <div className="flex justify-center items-center h-screen">
            
                 <form onSubmit={handleUpdateProduct} className="w-full max-w-md bg-white p-4 rounded shadow-md">
@@ -143,9 +143,9 @@ const UpdateProduct = () => {
                     <div className="flex items-center justify-center">
                     <button
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        className="btn btn-outline font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                     >
-                        Add
+                        Update
                     </button>
                     </div>
                 </form>

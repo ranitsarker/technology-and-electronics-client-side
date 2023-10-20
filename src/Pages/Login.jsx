@@ -59,7 +59,7 @@ const Login = () => {
           <form onSubmit={handleLogin}>
             <div className="mb-4">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -67,14 +67,14 @@ const Login = () => {
             </div>
             <div className="mb-6">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="password"
                 name="password"
                 placeholder="Enter your password"
               />
             </div>
             <button
-              className="w-full btn btn-outline py-2 rounded-lg hover:bg-[#1DBC60] hover:border-white"
+              className="w-full btn btn-outline py-2 rounded-lg hover:border-white"
               type="submit"
             >
               Login
