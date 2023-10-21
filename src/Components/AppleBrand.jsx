@@ -7,7 +7,7 @@ const AppleBrand = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    fetch('https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/product/apple')
+    fetch('http://localhost:5000/product/apple')
       .then((response) => response.json())
       .then((data) => {
         setAppleProducts(data);

@@ -1,24 +1,16 @@
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 function MyCart() {
   const [cartData, setCartData] = useState([]);
+
   const { user } = useContext(AuthContext);
-
-  const removeFromCart = (product) => {
-    if (user) {
-      // Filter out the item to be removed from the cart data
-      const updatedCartData = cartData.filter((item) => item.product._id !== product._id);
-      setCartData(updatedCartData);
-  
-    }
-  };
-
   useEffect(() => {
     if (user) {
       const userEmail = user.email;
 
-      fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/cart/${userEmail}`)
+      fetch(`http://localhost:5000/cart/${userEmail}`)
         .then((response) => response.json())
         .then((data) => setCartData(data))
         .catch((error) => {
@@ -27,6 +19,22 @@ function MyCart() {
     }
   }, [user]);
 
+  // delete cart product
+  const handleCartProductDelete = (id) => {
+    fetch(`http://localhost:5000/cart/${id}`, {
+      method: 'DELETE',
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          console.log('Deleted successfully');
+          // remove from ui 
+          const remainingCartProducts = cartData.filter(cart => cart._id !== id);
+          setCartData(remainingCartProducts);
+          toast.success('Product has been deleted successfully');
+        }
+      });
+  };
   return (
 <div className='md:mx-10 mx-4 my-8'>
   <h1 className="text-2xl font-semibold mb-4 ">My Cart</h1>
@@ -42,7 +50,7 @@ function MyCart() {
           <div>
             <p className="text-lg font-semibold">{item.product.name}</p>
             <p className="text-gray-600">Price: ${item.product.price}</p>
-            <button onClick={() => removeFromCart(item.product)}>Remove from Cart</button>
+            <button onClick={() => handleCartProductDelete(item._id)}>Remove from Cart</button>
           </div>
         </div>
       ))}
