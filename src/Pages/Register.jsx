@@ -36,7 +36,7 @@ const Register = () => {
 
       // Save user data to your database
       const user = { email };
-      await fetch('http://localhost:5000/user', {
+      await fetch('https://technology-and-electronics-server-side-o3w7iypcd.vercel.app/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

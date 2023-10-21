@@ -57,7 +57,7 @@ const myCustomRoute = createBrowserRouter([
              {
                path: '/updateproduct/:id',
                element: <PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>,
-               loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+               loader: ({ params }) => fetch(`https://technology-and-electronics-server-side-o3w7iypcd.vercel.app/product/${params.id}`),
              },
              {
               path: '/product/:id',

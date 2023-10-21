@@ -7,7 +7,7 @@ const SamsungBrand = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/product/samsung')
+    fetch('https://technology-and-electronics-server-side-o3w7iypcd.vercel.app/product/samsung')
       .then((response) => response.json())
       .then((data) => {
         setSamsungProducts(data);

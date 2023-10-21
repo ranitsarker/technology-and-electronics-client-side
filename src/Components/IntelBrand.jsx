@@ -7,7 +7,7 @@ const IntelBrand = () => {
   const [showAllProducts, setShowAllProducts] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/product/intel') 
+    fetch('https://technology-and-electronics-server-side-o3w7iypcd.vercel.app/product/intel') 
       .then((response) => response.json())
       .then((data) => {
         setIntelProducts(data);
