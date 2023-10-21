@@ -36,7 +36,7 @@ const Register = () => {
 
       // Save user data to your database
       const user = { email };
-      await fetch('http://localhost:5000/user', {
+      await fetch('https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/user', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ const Register = () => {
           <form onSubmit={handleRegister}>
             <div className="mb-4">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="text"
                 name="name"
                 placeholder="Enter your name"
@@ -73,7 +73,7 @@ const Register = () => {
             </div>
             <div className="mb-4">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="text"
                 name="photo"
                 placeholder="Enter your photo URL"
@@ -83,7 +83,7 @@ const Register = () => {
             </div>
             <div className="mb-4">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="email"
                 name="email"
                 placeholder="Enter your email"
@@ -91,7 +91,7 @@ const Register = () => {
             </div>
             <div className="mb-6">
               <input
-                className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-[#1DBC60]"
+                className="w-full px-3 py-2 border rounded-lg focus:outline-none"
                 type="password"
                 name="password"
                 placeholder="Enter your password"
@@ -109,7 +109,7 @@ const Register = () => {
           <p className="mt-4 text-center">
             Already have an account?{' '}
             <button
-              className="text-[#1DBC60] hover:underline"
+              className="hover:underline"
               type="button"
               onClick={handleLoginToggle}
             >
