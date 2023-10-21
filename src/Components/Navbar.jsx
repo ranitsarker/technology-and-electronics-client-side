@@ -33,7 +33,7 @@ const Navbar = () => {
     if (user) {
       const userEmail = user.email;
       // Fetch the user's cart data and count the items
-      fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/cart/${userEmail}`)
+      fetch(`http://localhost:5000/cart/${userEmail}`)
         .then((response) => response.json())
         .then((data) => {
           setCartItemCount(data.length); // Set the cart item count

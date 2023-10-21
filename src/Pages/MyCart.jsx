@@ -10,7 +10,7 @@ function MyCart() {
     if (user) {
       const userEmail = user.email;
 
-      fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/cart/${userEmail}`)
+      fetch(`http://localhost:5000/cart/${userEmail}`)
         .then((response) => response.json())
         .then((data) => setCartData(data))
         .catch((error) => {
@@ -21,7 +21,7 @@ function MyCart() {
 
   // delete cart product
   const handleCartProductDelete = (id) => {
-    fetch(`https://technology-and-electronics-server-side-tb9wzrxtb.vercel.app/cart/${id}`, {
+    fetch(`http://localhost:5000/cart/${id}`, {
       method: 'DELETE',
     })
       .then((res) => res.json())
