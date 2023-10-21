@@ -34,8 +34,8 @@ const GoogleBrand = () => {
                 <p className="font-semibold text-lg mt-2">{product.name}</p>
                 <p>Brand: {product.brand}</p>
                 <p>Type: {product.type}</p>
-                <p>Price: {product.price}</p>
-                <p>Rating: {product.rating}</p>
+                <p>Price: $ {product.price}</p>
+                <p>Rating: {product.rating} </p>
                 <Link
                   to={`/updateproduct/${product._id}`}
                   className="block text-blue-500 hover:underline mt-2"

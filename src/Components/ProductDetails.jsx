@@ -61,9 +61,9 @@ const ProductDetails = () => {
           <h1 className="text-2xl font-bold">{product.name}</h1>
           <p>Brand: {product.brand}</p>
           <p>Type: {product.type}</p>
-          <p>Price: {product.price}</p>
+          <p>Price: $ {product.price}</p>
           <p>Short Description: {product.shortDescription}</p>
-          <p>Rating: {product.rating}</p>
+          <p>Rating: {product.rating} </p>
           <button className="btn btn-outline mt-4" onClick={addToCart}>
             Add to Cart
           </button>

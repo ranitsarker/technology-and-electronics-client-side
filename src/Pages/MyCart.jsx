@@ -50,7 +50,7 @@ function MyCart() {
           <div>
             <p className="text-lg font-semibold">{item.product.name}</p>
             <p className="text-gray-600">Price: ${item.product.price}</p>
-            <button onClick={() => handleCartProductDelete(item._id)}>Remove from Cart</button>
+            <button onClick={() => handleCartProductDelete(item._id)} className='underline'>Remove from Cart</button>
           </div>
         </div>
       ))}
